@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#21152f">
+<title>Happy Birthday, Sathi!</title>
+<style>
+:root{--ink:#fff8ff;--muted:#e8d8ec;--pink:#ff9fc8;--rose:#ff6fae;--lav:#c7a7ff;--night:#21152f;--card:rgba(255,255,255,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;background:radial-gradient(circle at 15% 15%,#68416e 0,transparent 34%),radial-gradient(circle at 90% 30%,#573b75 0,transparent 32%),linear-gradient(145deg,#1d152c,#33203f 55%,#1d1830);min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:37px 37px}
+main{width:min(920px,92%);margin:auto;padding:28px 0 70px;position:relative}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.pill,.lang button{border:1px solid #ffffff42;background:#ffffff12;color:var(--ink);padding:9px 14px;border-radius:99px;font-size:13px}
+.lang{display:flex;gap:6px}.lang button.active{background:#ff9fc833;border-color:var(--pink)}
+.hero{text-align:center;padding:68px 10px 36px}
+.eyebrow{letter-spacing:.22em;text-transform:uppercase;color:#ffd0e5;font-size:11px}
+h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(48px,10vw,92px);line-height:.98;margin:17px 0 12px;background:linear-gradient(100deg,#fff,#ffc4df 48%,#d6c2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.subtitle{font-size:clamp(16px,3vw,20px);color:var(--muted);line-height:1.7}
+.sparkle{font-size:28px;display:inline-block;animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px) rotate(8deg)}}
+.btn{border:0;border-radius:999px;padding:14px 23px;background:linear-gradient(100deg,#ff8fbd,#c6a2ff);color:#28172f;font-weight:800;font-size:15px;box-shadow:0 12px 35px #ff8fbd35;cursor:pointer;margin:9px 5px}
+.btn.secondary{background:#ffffff12;color:white;border:1px solid #ffffff40;box-shadow:none}
+.section{margin:26px 0;padding:clamp(22px,5vw,38px);border:1px solid #ffffff25;border-radius:28px;background:var(--card);backdrop-filter:blur(12px);box-shadow:0 18px 55px #100b1d30}
+.section h2{font-family:Georgia,serif;font-weight:500;font-size:clamp(27px,5vw,38px);margin:0 0 12px}
+.center{text-align:center}
+.note{color:var(--muted);line-height:1.8}
+.cake{font-size:76px;filter:drop-shadow(0 12px 18px #ff9fc833);animation:bob 2.5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-7px)}}
+.wishbox{min-height:170px;display:grid;place-items:center;text-align:center;padding:18px;border-radius:22px;background:#ffffff0d;border:1px solid #ffffff24;margin:20px 0}
+#wish{font-family:Georgia,serif;font-size:clamp(21px,4.5vw,31px);line-height:1.5;color:#ffe0ef}
+.counter{font-variant-numeric:tabular-nums;color:#ffd1e5;font-size:13px;letter-spacing:.08em}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
+.tile{padding:17px;border-radius:18px;background:#ffffff0d;border:1px solid #ffffff1c;line-height:1.6}
+.tile b{color:#ffd0e5}
+footer{text-align:center;color:#cdbbd4;font-size:12px;padding:26px 0}
+.hidden{display:none}
+.confetti{position:fixed;top:-20px;width:9px;height:14px;z-index:10;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.2}}
+@media(max-width:600px){main{width:91%}.hero{padding-top:52px}.grid{grid-template-columns:1fr}.section{border-radius:23px}.top{align-items:flex-start}.pill{font-size:11px;padding:8px 10px}}
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <span class="pill">✦ A little birthday universe</span>
+    <div class="lang" aria-label="Language">
+      <button id="enBtn" class="active" onclick="setLang('en')">EN</button>
+      <button id="bnBtn" onclick="setLang('bn')">বাংলা</button>
+      <button id="bothBtn" onclick="setLang('both')">Both</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="sparkle">✧ ✨ ✧</div>
+    <div class="eyebrow" id="eyebrow">A special day for someone special</div>
+    <h1>Happy Birthday,<br>Sathi!</h1>
+    <div class="subtitle" id="intro">A little sparkle, a lot of smiles, and 1,000 tiny wishes just for you.</div>
+    <button class="btn" onclick="startSurprise()" id="startBtn">Open your surprise ✨</button>
+    <div><span class="sparkle">♡</span></div>
+  </header>
+
+  <section class="section center" id="surprise">
+    <div class="cake">🎂</div>
+    <h2 id="cakeTitle">Make a wish, Sathi!</h2>
+    <p class="note" id="cakeText">May your day be sprinkled with laughter, lovely surprises and all your favourite little things.</p>
+    <button class="btn" onclick="celebrate()" id="confettiBtn">Let the confetti fly! 🎉</button>
+  </section>
+
+  <section class="section center">
+    <div class="eyebrow" id="wishEyebrow">A thousand little good wishes</div>
+    <h2 id="wishTitle">Wish no. <span id="number">1</span> of 1,000</h2>
+    <div class="wishbox"><div id="wish">Beautiful Sathi, keep shining in your own lovely way. 🌷</div></div>
+    <div class="counter" id="counter">1 / 1,000 wishes revealed</div>
+    <div>
+      <button class="btn" onclick="nextWish()" id="nextBtn">Another wish →</button>
+      <button class="btn secondary" onclick="showAll()" id="allBtn">Reveal all 1,000</button>
+    </div>
+    <p class="note" id="wishHint">Tap “Another wish” to discover the next one. Every wish is generated right here—no internet or sign-in needed.</p>
+  </section>
+
+  <section class="section">
+    <h2 id="littleTitle">A few things to remember 🌸</h2>
+    <div class="grid" id="tiles">
+      <div class="tile"><b>Keep smiling</b><br>Your smile makes ordinary days feel brighter.</div>
+      <div class="tile"><b>Stay curious</b><br>May life keep surprising you in the best ways.</div>
+      <div class="tile"><b>Be wonderfully you</b><br>There is no upgrade needed. You're already lovely.</div>
+      <div class="tile"><b>And eat cake</b><br>Birthday calories are currently on holiday. 😂</div>
+    </div>
+  </section>
+
+  <section class="section center">
+    <div class="sparkle">💌</div>
+    <h2 id="lastTitle">One last thing, Sathi…</h2>
+    <p class="note" id="lastText">I hope this new chapter brings you peaceful mornings, unexpected laughter, good people, big little adventures and countless reasons to feel happy. Have the loveliest birthday!</p>
+    <div style="font-family:Georgia,serif;font-size:25px;color:#ffd0e5;margin-top:18px" id="signoff">Stay awesome, Sathi! ♡</div>
+  </section>
+  <footer>Made with a little code, lots of good wishes, and zero boring birthday clichés. ✨</footer>
+</main>
+<script>
+const enA=["May your day sparkle with","Wishing you a year filled with","Here’s to more","May life surprise you with","Sending you a little extra","Hope today brings you","May every week offer you","Here’s a reminder to enjoy","May your next chapter be full of","A little birthday wish for you:"];
+const enB=["joy, laughter and lovely memories","good health, kind people and happy moments","adventures that make the best stories","reasons to smile on ordinary Tuesdays","cake, confidence and excellent luck","beautiful beginnings and peaceful days","tiny wins and wonderfully big dreams","music, sunshine and spontaneous fun","friendship, fun and fresh opportunities","all the good things you truly deserve","cozy evenings and exciting plans","new places and favourite familiar faces","creative ideas and the courage to try them","little surprises that turn into big memories","calm days, bright thoughts and happy hearts","success that feels meaningful, not stressful","more laughter than you can count","the freedom to be completely yourself","delicious food and ridiculously good playlists","moments that make you say, “What a lovely day!”"];
+const enC=["today and all year long. ✨","because you deserve every bit of it. 🌷","and absolutely no unnecessary drama. 😂","with a side of extra cake. 🎂","and may the good days outnumber the Mondays. 💗"];
+const bnA=["তোমার দিনটা ভরে উঠুক","নতুন বছরটা নিয়ে আসুক","তোমার জীবনে থাকুক","আজ আর প্রতিটি আগামীকাল হোক","রইল একরাশ","তোমার প্রতিটি সকাল শুরু হোক","জীবন তোমাকে উপহার দিক","তোমার চারপাশে ছড়িয়ে থাকুক","সামনের দিনগুলো কাটুক","জন্মদিনে তোমার জন্য রইল"];
+const bnB=["হাসি, আনন্দ আর সুন্দর স্মৃতিতে","সুস্বাস্থ্য, ভালো মানুষ আর শান্তিতে","নতুন অভিজ্ঞতা আর দারুণ সব গল্পে","ছোট ছোট আনন্দ আর বড় বড় স্বপ্নে","কেক, মজা আর অফুরন্ত সৌভাগ্যে","রোদেলা সকাল আর নিশ্চিন্ত সন্ধ্যায়","অপ্রত্যাশিত চমক আর মিষ্টি মুহূর্তে","সাহস, আত্মবিশ্বাস আর সাফল্যে","বন্ধুত্ব, আনন্দ আর উজ্জ্বলতায়","তোমার প্রাপ্য সব সুন্দর জিনিসে","আরামদায়ক সন্ধ্যা আর মজার পরিকল্পনায়","নতুন জায়গা আর প্রিয় মানুষদের সঙ্গে","সৃজনশীল ভাবনা আর নতুন কিছু করার সাহসে","ছোট চমক আর বড় স্মৃতির ভান্ডারে","শান্ত দিন, সুন্দর ভাবনা আর খুশির ছোঁয়ায়","অর্থবহ সাফল্য আর নিজের ওপর বিশ্বাসে","গুনে শেষ করা যাবে না এমন হাসিতে","নিজের মতো করে বাঁচার স্বাধীনতায়","মজার খাবার আর পছন্দের গানে","যে মুহূর্তে মনে হবে, দিনটা দারুণ কাটল"];
+const bnC=["— আজও, আগামী দিনগুলোতেও। ✨","কারণ তুমি সত্যিই এগুলো পাওয়ার যোগ্য। 🌷","আর হ্যাঁ, কেকটা কিন্তু আমার ভাগেও রেখো! 😂","একদম মন খুলে উপভোগ করো। 🎂","আর মন খারাপকে আজ ছুটি দিয়ে দাও। 💗"];
+let lang="en",idx=0,allRevealed=false;
+function makeWish(n){
+ const a=n%enA.length,b=Math.floor(n/enA.length)%enB.length,c=Math.floor(n/(enA.length*enB.length))%enC.length;
+ const ba=n%bnA.length,bb=Math.floor(n/bnA.length)%bnB.length,bc=Math.floor(n/(bnA.length*bnB.length))%bnC.length;
+ return {en:`${enA[a]} ${enB[b]} ${enC[c]}`,bn:`${bnA[ba]} ${bnB[bb]} ${bnC[bc]}`};
+}
+const specials=[
+{en:"Beautiful Sathi, keep shining in your own lovely way. 🌷",bn:"সুন্দরী সাথী, নিজের মতো করেই আলো ছড়িয়ে যাও। 🌷"},
+{en:"Hey cutie! Your birthday assignment: smile a lot and eat cake. 😂",bn:"এই যে কিউটি! জন্মদিনের কাজ: অনেক হাসবে আর কেক খাবে। 😂"},
+{en:"May your coffee be strong, your worries be tiny and your photos be flawless. ☕",bn:"তোমার কফি হোক কড়া, চিন্তা হোক ছোট আর ছবিগুলো হোক একদম পারফেক্ট। ☕"},
+{en:"A year older, still iconic. How do you do it? 😎",bn:"আরও এক বছর বড়, তবু সেই আইকনিক! কীভাবে সম্ভব? 😎"},
+{en:"You deserve a standing ovation… and a very large slice of cake. 🎂",bn:"তোমার জন্য একরাশ হাততালি… আর কেকের একটা বিশাল টুকরো প্রাপ্য। 🎂"}
+];
+function currentWish(){return idx<specials.length?specials[idx]:makeWish(idx-specials.length)}
+function renderWish(){
+ const w=currentWish();document.getElementById("number").textContent=idx+1;
+ document.getElementById("wish").textContent=lang==="bn"?w.bn:lang==="both"?w.en+" / "+w.bn:w.en;
+ document.getElementById("counter").textContent=(idx+1)+" / 1,000 "+(lang==="bn"?"টি শুভেচ্ছা":"wishes revealed");
+}
+function nextWish(){idx=(idx+1)%1000;renderWish();if(idx%20===0)celebrateSmall()}
+function showAll(){allRevealed=true;idx=999;renderWish();document.getElementById("wish").textContent=lang==="bn"?"১০০০টি শুভেচ্ছাই তোমার জন্য! শুভ জন্মদিন, সাথী! 🎉":"All 1,000 wishes are yours, Sathi! শুভ জন্মদিন! 🎉";document.getElementById("counter").textContent=lang==="bn"?"১,০০০ / ১,০০০ শুভেচ্ছা":"1,000 / 1,000 wishes revealed";celebrate()}
+function setLang(v){lang=v;["enBtn","bnBtn","bothBtn"].forEach(id=>document.getElementById(id).classList.remove("active"));document.getElementById(v==="en"?"enBtn":v==="bn"?"bnBtn":"bothBtn").classList.add("active");applyText();renderWish()}
+function applyText(){
+ const bn=lang==="bn",both=lang==="both";
+ const set=(id,e,b)=>document.getElementById(id).textContent=bn?b:both?e+" / "+b:e;
+ set("eyebrow","A special day for someone special","একজন বিশেষ মানুষের জন্য বিশেষ একটি দিন");
+ set("intro","A little sparkle, a lot of smiles, and 1,000 tiny wishes just for you.","একটু ঝিলমিল, অনেক হাসি আর শুধু তোমার জন্য ১,০০০টি ছোট্ট শুভকামনা।");
+ set("startBtn","Open your surprise ✨","সারপ্রাইজ খুলে দেখো ✨");
+ set("cakeTitle","Make a wish, Sathi!","মনে মনে একটা ইচ্ছে করো, সাথী!");
+ set("cakeText","May your day be sprinkled with laughter, lovely surprises and all your favourite little things.","তোমার দিনটা ভরে উঠুক হাসি, সুন্দর চমক আর তোমার পছন্দের ছোট ছোট আনন্দে।");
+ set("confettiBtn","Let the confetti fly! 🎉","কনফেটি উড়ুক! 🎉");
+ set("wishEyebrow","A thousand little good wishes","এক হাজার ছোট্ট শুভকামনা");
+ set("wishTitle","Wish no.","শুভেচ্ছা নম্বর");
+ set("nextBtn","Another wish →","আরেকটি শুভেচ্ছা →");
+ set("allBtn","Reveal all 1,000","সব ১,০০০টি দেখাও");
+ set("wishHint","Tap “Another wish” to discover the next one. Every wish is generated right here—no internet or sign-in needed.","পরের শুভেচ্ছাটি দেখতে “আরেকটি শুভেচ্ছা” চাপো। সব শুভেচ্ছা এখানেই তৈরি হয়—ইন্টারনেট বা সাইন-ইন লাগে না।");
+ set("littleTitle","A few things to remember 🌸","কিছু কথা মনে রেখো 🌸");
+ set("lastTitle","One last thing, Sathi…","শেষে একটা কথা, সাথী…");
+ set("lastText","I hope this new chapter brings you peaceful mornings, unexpected laughter, good people, big little adventures and countless reasons to feel happy. Have the loveliest birthday!","আশা করি জীবনের নতুন বছরটি তোমাকে দেবে শান্তিময় সকাল, অপ্রত্যাশিত হাসি, ভালো মানুষ, দারুণ সব অভিজ্ঞতা আর খুশি হওয়ার অসংখ্য কারণ। জন্মদিনটা খুব সুন্দর কাটুক!");
+ set("signoff","Stay awesome, Sathi! ♡","এভাবেই দারুণ থেকো, সাথী! ♡");
+ const tiles=bn?[
+ ["হাসিখুশি থেকো","তোমার হাসি সাধারণ দিনকেও সুন্দর করে তোলে।"],["কৌতূহলী থেকো","জীবন তোমাকে সুন্দর সব চমক দিক।"],["নিজের মতো থেকো","তোমার মতো হওয়াটাই যথেষ্ট সুন্দর।"],["কেক খেতে ভুলো না","জন্মদিনে ক্যালোরিরা ছুটিতে থাকে! 😂"]
+ ]:[
+ ["Keep smiling","Your smile makes ordinary days feel brighter."],["Stay curious","May life keep surprising you in the best ways."],["Be wonderfully you","There is no upgrade needed. You're already lovely."],["And eat cake","Birthday calories are currently on holiday. 😂"]
+ ];
+ document.getElementById("tiles").innerHTML=tiles.map(t=>`<div class="tile"><b>${t[0]}</b><br>${t[1]}</div>`).join("");
+}
+function confetti(count=90){const colors=["#ff9fc8","#d6c2ff","#ffe08a","#ffffff","#9de6d1"];for(let i=0;i<count;i++){let el=document.createElement("i");el.className="confetti";el.style.left=Math.random()*100+"vw";el.style.background=colors[i%colors.length];el.style.animationDuration=(2.5+Math.random()*3)+"s";el.style.animationDelay=(Math.random()*.7)+"s";el.style.transform=`rotate(${Math.random()*180}deg)`;document.body.appendChild(el);setTimeout(()=>el.remove(),6500)}}
+function celebrate(){confetti(150)}
+function celebrateSmall(){confetti(24)}
+function startSurprise(){document.getElementById("surprise").scrollIntoView({behavior:"smooth"});celebrate()}
+applyText();renderWish();
+</script>
+</body>
+</html>
